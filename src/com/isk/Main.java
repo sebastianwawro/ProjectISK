@@ -38,10 +38,5 @@ public class Main {
         System.out.println("");
         System.out.println("Final value: " + PossibleItem.getFinalValue(takenItemsIds));
         System.out.println("Final size: " + PossibleItem.getFinalSize(takenItemsIds));
-
-        //GASalesman.main(null);
-        //GAMaze.main(null);
-        //GATrigFunc.main(null);
-	// write your code here
     }
 }
