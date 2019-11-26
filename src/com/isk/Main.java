@@ -21,19 +21,23 @@ public class Main {
                 PossibleItem.getItemSizesTable(),
                 PossibleItem.getItemPricesTable(),
                 AppMemory.getInstance().getBackspaceCapacity(),
-                500,
-                5,
-                0.115,
-                0.16,
-                7,
-                100,
+                5000,
+                50,
+                0.05,
+                0.20,
+                1000,
+                1000,
                 true);
 
         System.out.println("Solved!");
         System.out.println("Taken items: ");
-        for (Integer itemId : PossibleItem.getTakenItemIdsTable(out)) {
+        List<Integer> takenItemsIds = PossibleItem.getTakenItemIdsTable(out);
+        for (Integer itemId : takenItemsIds) {
             System.out.print(itemId + " ");
         }
+        System.out.println("");
+        System.out.println("Final value: " + PossibleItem.getFinalValue(takenItemsIds));
+        System.out.println("Final size: " + PossibleItem.getFinalSize(takenItemsIds));
 
         //GASalesman.main(null);
         //GAMaze.main(null);

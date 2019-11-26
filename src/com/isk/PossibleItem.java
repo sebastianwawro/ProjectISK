@@ -1,5 +1,7 @@
 package com.isk;
 
+import io.jenetics.knapsack.Knapsack;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,5 +89,33 @@ public class PossibleItem {
             }
         }
         return takenItemIds;
+    }
+
+    public static PossibleItem getItemById(int id) {
+        List<PossibleItem> possibleItems = AppMemory.getInstance().getPossibleItems();
+        for(PossibleItem possibleItem : possibleItems) {
+            if (possibleItem.getItemId() == id) return possibleItem;
+        }
+        return null;
+    }
+
+    public static double getFinalValue(List<Integer> takenItemsIds) {
+        double sum=0;
+        for(Integer id : takenItemsIds) {
+            PossibleItem possibleItem = PossibleItem.getItemById(id);
+            if (possibleItem == null) continue;
+            sum+=possibleItem.getItemPrice();
+        }
+        return sum;
+    }
+
+    public static double getFinalSize(List<Integer> takenItemsIds) {
+        double sum=0;
+        for(Integer id : takenItemsIds) {
+            PossibleItem possibleItem = PossibleItem.getItemById(id);
+            if (possibleItem == null) continue;
+            sum+=possibleItem.getItemSize();
+        }
+        return sum;
     }
 }
