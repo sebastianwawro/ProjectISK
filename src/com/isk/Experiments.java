@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Experiments {
     public static boolean verbosity = false;
-    private static int repeatCount = 20;
+    public static int repeatCount = 20;
 
     private static String crossoverTypeToString(int type) {
         switch(type) {
@@ -101,6 +101,7 @@ public class Experiments {
                     + execTime + "\t"
                     + isOK
                     + "\r\n");
+            Main.testCommonProgress++;
             if (verbosity) displayCurrentResult(score, settingsForGA);
         }
         String result = stringBuilder.toString();
@@ -113,7 +114,7 @@ public class Experiments {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Wartość spakowanych itemków\tWaga spakowanych itemków\tCzas pakowania\tCzy poprawne\tRozmiar populacji\r\n");
         SettingsForGA settingsForGA = new SettingsForGA();
-        for (int iPop = 5; iPop <= 500; iPop +=5) {
+        for (int iPop = 5; iPop < 500; iPop +=5) {
             settingsForGA.populationSize=iPop;
             for (int rp=0; rp<repeatCount; rp++) {
                 SurvivedChromosomeData score = GACurveFitX.performGA(settingsForGA);
@@ -129,6 +130,7 @@ public class Experiments {
                         + isOK + "\t"
                         + iPop
                         + "\r\n");
+                Main.testPopulationProgress++;
                 if (verbosity) displayCurrentResult(score, settingsForGA);
             }
         }
@@ -158,6 +160,7 @@ public class Experiments {
                         + isOK + "\t"
                         + crossoverTypeToString(iType)
                         +"\r\n");
+                Main.testDifferentCrossoversProgress++;
                 if (verbosity) displayCurrentResult(score, settingsForGA);
             }
         }
@@ -187,6 +190,7 @@ public class Experiments {
                         + isOK + "\t"
                         + iCrossChance
                         + "\r\n");
+                Main.testCrossoverChanceProgress++;
                 if (verbosity) displayCurrentResult(score, settingsForGA);
             }
         }
@@ -216,6 +220,7 @@ public class Experiments {
                         + isOK + "\t"
                         + iMutChance
                         + "\r\n");
+                Main.testMutationChanceProgress++;
                 if (verbosity) displayCurrentResult(score, settingsForGA);
             }
         }
@@ -254,6 +259,7 @@ public class Experiments {
                                     + iCrossChance + "\t"
                                     + iMutChance
                                     + "\r\n");
+                            Main.testAioProgress++;
                             if (verbosity) displayCurrentResult(score, settingsForGA);
                         }
                     }

@@ -6,17 +6,70 @@ import java.util.List;
 import io.jenetics.knapsack.Knapsack;
 
 public class Main {
+    public static int testCommonProgress = 0;
+    public static int testPopulationProgress = 0;
+    public static int testDifferentCrossoversProgress = 0;
+    public static int testCrossoverChanceProgress = 0;
+    public static int testMutationChanceProgress = 0;
+    public static int testAioProgress = 0;
+    public static int testCommonMax = Experiments.repeatCount * 8;
+    public static int testPopulationMax = Experiments.repeatCount * ((500-5)/5);
+    public static int testDifferentCrossoversMax = Experiments.repeatCount * 4;
+    public static int testCrossoverChanceMax = Experiments.repeatCount * (int)((1.0f - 0.05f) / 0.05f);
+    public static int testMutationChanceMax = Experiments.repeatCount * (int)((1.0f - 0.05f) / 0.05f);
+    public static int testAioMax = Experiments.repeatCount * 4 * ((500-5)/5) * (int)((1.0f - 0.05f) / 0.05f) * (int)((1.0f - 0.05f) / 0.05f);
+    public static Thread statusThread = null;
+    private static boolean started = false;
 
     public static void main(String[] args) throws Exception {
         //solveUsingJenetics();
-        exampleGA();
+        //exampleGA();
+        prepareStatusThread();
         System.out.println();
         System.out.println();
         System.out.println();
         System.out.println("Click enter to begin!");
         int x = System.in.read();
+        started = true;
         if (x == 97 || x == 65) solveUsingGA_Async();
         else solveUsingGA_Sync();
+    }
+
+    public static void prepareStatusThread() {
+        statusThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    if (!started) {
+                        try {
+                            Thread.sleep(100);
+                        }
+                        catch (Exception e) {e.printStackTrace();}
+                        continue;
+                    }
+                    System.out.println("STATUS:");
+                    System.out.println("Test Common: " + testCommonProgress + "/" + testCommonMax);
+                    System.out.println("Test Population: " + testPopulationProgress + "/" + testPopulationMax);
+                    System.out.println("Test Different Crossovers: " + testDifferentCrossoversProgress + "/" + testDifferentCrossoversMax);
+                    System.out.println("Test Crossover Chance: " + testCrossoverChanceProgress + "/" + testCrossoverChanceMax);
+                    System.out.println("Test Mutation Chance: " + testMutationChanceProgress + "/" + testMutationChanceMax);
+                    //System.out.println("Test AIO: " + testAioProgress + "/" + testAioMax);
+                    System.out.println();
+                    if (testCommonProgress >= testCommonMax
+                            && testPopulationProgress >= testPopulationMax
+                            && testDifferentCrossoversProgress >= testDifferentCrossoversMax
+                            && testCrossoverChanceProgress >= testCrossoverChanceMax
+                            && testMutationChanceProgress >= testMutationChanceMax
+                            //&& testAioProgress >= testAioMax
+                    ) break;
+                    try {
+                        Thread.sleep(7000);
+                    }
+                    catch (Exception e) {e.printStackTrace();}
+                }
+            }
+        });
+        if (!Experiments.verbosity) statusThread.start();
     }
 
     public static void exampleGA() throws Exception {
