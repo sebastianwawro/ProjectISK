@@ -22,9 +22,98 @@ public class Main {
             System.out.println("Item:\n"+item.getItemId()+"\n"+item.getItemSize()+"\n"+item.getItemPrice()+"\n\n");
         }
 
-        GACurveFitX.performGA(new SettingsForGA());
+        //GACurveFitX.performGA(new SettingsForGA());
+        //Experiments.testCommon("testCommon.txt");
 
-        Experiments.testCommon("testCommon.txt");
+        Thread testCommonThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Experiments.testCommon("MacierzTestZwykly.txt");
+                }
+                catch (Exception e) {
+                    System.out.println("Test Common failed, exception thrown: ");
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread testPopulationThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Experiments.testPopulation("MacierzTestPopulacje.txt");
+                }
+                catch (Exception e) {
+                    System.out.println("Test Population failed, exception thrown: ");
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread testDifferentCrossoversThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Experiments.testDifferentCrossovers("MacierzRozneCrossovery.txt");
+                }
+                catch (Exception e) {
+                    System.out.println("Test Different Crossovers failed, exception thrown: ");
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread testCrossoverChanceThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Experiments.testCrossoverChance("MacierzTestSzansaCrossovera.txt");
+                }
+                catch (Exception e) {
+                    System.out.println("Test Crossover Chance failed, exception thrown: ");
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread testMutationChanceThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Experiments.testMutationChance("MacierzTestSzansaMutacji.txt");
+                }
+                catch (Exception e) {
+                    System.out.println("Test Mutation Chance failed, exception thrown: ");
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread testAioThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Experiments.testAIO("MacierzTestAIO.txt");
+                }
+                catch (Exception e) {
+                    System.out.println("Test Common failed, exception thrown: ");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        testCommonThread.start();
+        testPopulationThread.start();
+        testDifferentCrossoversThread.start();
+        testCrossoverChanceThread.start();
+        testMutationChanceThread.start();
+        //testAioThread.start();
+
+        testCommonThread.join();
+        testPopulationThread.join();
+        testDifferentCrossoversThread.join();
+        testCrossoverChanceThread.join();
+        testMutationChanceThread.join();
+        //testAioThread.join();
+
+        System.out.println("Kuniec");
+        Thread.sleep(5000);
     }
 
     public static void solveUsingJenetics() throws Exception {
