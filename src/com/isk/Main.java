@@ -5,12 +5,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.softtechdesign.ga.GAException;
-import com.softtechdesign.ga.examples.*;
+//import com.softtechdesign.ga.examples.*;
 import io.jenetics.knapsack.Knapsack;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
+        //solveUsingJenetics();
+        solveUsingGA();
+    }
+
+    public static void solveUsingGA() throws Exception {
+        FileParser.parseFile("input.txt");
+        System.out.println("Backspace capacity: " + AppMemory.getInstance().getBackspaceCapacity() + "\n\n");
+        for (PossibleItem item : AppMemory.getInstance().getPossibleItems()) {
+            System.out.println("Item:\n"+item.getItemId()+"\n"+item.getItemSize()+"\n"+item.getItemPrice()+"\n\n");
+        }
+
+        GACurveFitX.performGA(new SettingsForGA());
+
+        Experiments.testCommon("testCommon.txt");
+    }
+
+    public static void solveUsingJenetics() throws Exception {
         FileParser.parseFile("input.txt");
         System.out.println("Backspace capacity: " + AppMemory.getInstance().getBackspaceCapacity() + "\n\n");
         for (PossibleItem item : AppMemory.getInstance().getPossibleItems()) {
@@ -27,7 +44,7 @@ public class Main {
                 0.20,
                 1000,
                 1000,
-                true);
+                false);
 
         System.out.println("Solved!");
         System.out.println("Taken items: ");
