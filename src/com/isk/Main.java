@@ -16,8 +16,8 @@ public class Main {
     public static int testPopulationMax = Experiments.repeatCount * ((500-5)/5);
     public static int testDifferentCrossoversMax = Experiments.repeatCount * 4;
     public static int testCrossoverChanceMax = Experiments.repeatCount * (int)((1.0f - 0.05f) / 0.05f);
-    public static int testMutationChanceMax = Experiments.repeatCount * (int)((1.0f - 0.05f) / 0.05f);
-    public static int testAioMax = Experiments.repeatCount * 4 * ((500-5)/5) * (int)((1.0f - 0.05f) / 0.05f) * (int)((1.0f - 0.05f) / 0.05f);
+    public static int testMutationChanceMax = Experiments.repeatCount * (int)((1.0f - 0.05f) / 0.01f);
+    public static int testAioMax = Experiments.repeatCount * 4 * ((500-5)/5) * (int)((1.0f - 0.05f) / 0.05f) * (int)((1.0f - 0.05f) / 0.01f);
     public static Thread statusThread = null;
     private static boolean started = false;
 
