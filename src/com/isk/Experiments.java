@@ -92,7 +92,12 @@ public class Experiments {
             double totalSize = countItemsSize(score);
             double execTime = score.getExecTime();
             int isOK = isOK(totalSize)?1:0;
-            stringBuilder.append(totalPrice+"\t"+totalSize+"\t"+execTime+"\t"+isOK+"\r\n");
+            stringBuilder.append(
+                    totalPrice + "\t"
+                    + totalSize + "\t"
+                    + execTime + "\t"
+                    + isOK
+                    + "\r\n");
             if (verbosity) displayCurrentResult(score, settingsForGA);
         }
         String result = stringBuilder.toString();
@@ -114,7 +119,13 @@ public class Experiments {
                 double totalSize = countItemsSize(score);
                 double execTime = score.getExecTime();
                 int isOK = isOK(totalSize)?1:0;
-                stringBuilder.append(totalPrice+"\t"+totalSize+"\t"+execTime+"\t"+isOK+"\t"+iPop+"\r\n");
+                stringBuilder.append(
+                        totalPrice + "\t"
+                        + totalSize + "\t"
+                        + execTime + "\t"
+                        + isOK + "\t"
+                        + iPop
+                        + "\r\n");
                 if (verbosity) displayCurrentResult(score, settingsForGA);
             }
         }
@@ -137,7 +148,13 @@ public class Experiments {
                 double totalSize = countItemsSize(score);
                 double execTime = score.getExecTime();
                 int isOK = isOK(totalSize)?1:0;
-                stringBuilder.append(totalPrice+"\t"+totalSize+"\t"+execTime+"\t"+isOK+"\t"+crossoverTypeToString(iType)+"\r\n");
+                stringBuilder.append(
+                        totalPrice + "\t"
+                        + totalSize + "\t"
+                        + execTime + "\t"
+                        + isOK + "\t"
+                        + crossoverTypeToString(iType)
+                        +"\r\n");
                 if (verbosity) displayCurrentResult(score, settingsForGA);
             }
         }
@@ -160,7 +177,13 @@ public class Experiments {
                 double totalSize = countItemsSize(score);
                 double execTime = score.getExecTime();
                 int isOK = isOK(totalSize)?1:0;
-                stringBuilder.append(totalPrice+"\t"+totalSize+"\t"+execTime+"\t"+isOK+"\t"+iCrossChance+"\r\n");
+                stringBuilder.append(
+                        totalPrice + "\t"
+                        + totalSize + "\t"
+                        + execTime + "\t"
+                        + isOK + "\t"
+                        + iCrossChance
+                        + "\r\n");
                 if (verbosity) displayCurrentResult(score, settingsForGA);
             }
         }
@@ -183,8 +206,55 @@ public class Experiments {
                 double totalSize = countItemsSize(score);
                 double execTime = score.getExecTime();
                 int isOK = isOK(totalSize)?1:0;
-                stringBuilder.append(totalPrice+"\t"+totalSize+"\t"+execTime+"\t"+isOK+"\t"+iMutChance+"\r\n");
+                stringBuilder.append(
+                        totalPrice + "\t"
+                        + totalSize + "\t"
+                        + execTime + "\t"
+                        + isOK + "\t"
+                        + iMutChance
+                        + "\r\n");
                 if (verbosity) displayCurrentResult(score, settingsForGA);
+            }
+        }
+        String result = stringBuilder.toString();
+        FileManager.writeFile(fileName, result);
+        return scoresList;
+    }
+
+    public static List<SurvivedChromosomeData> testAIO(String fileName) throws Exception {
+        List<SurvivedChromosomeData> scoresList = new ArrayList<>();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Wartość spakowanych itemków\tWaga spakowanych itemków\tCzas pakowania\tCzy poprawne\tTyp crossovera\tRozmiar populacji\tSzansa na crossover\tSzansa na mutację\r\n");
+        SettingsForGA settingsForGA = new SettingsForGA();
+        for (int iType = 0; iType <= 3; iType++) {
+            settingsForGA.crossoverType = iType;
+            for (int iPop = 5; iPop <= 500; iPop += 5) {
+                settingsForGA.populationSize = iPop;
+                for (double iCrossChance = 0.05f; iCrossChance < 1.0f; iCrossChance += 0.05f) {
+                    settingsForGA.crossoverChance = iCrossChance;
+                    for (double iMutChance = 0.05f; iMutChance < 1.0f; iMutChance += 0.01f) {
+                        settingsForGA.mutationChance = iMutChance;
+                        for (int rp = 0; rp < repeatCount; rp++) {
+                            SurvivedChromosomeData score = GACurveFitX.performGA(settingsForGA);
+                            if (score == null) continue;
+                            double totalPrice = countItemsPrice(score);
+                            double totalSize = countItemsSize(score);
+                            double execTime = score.getExecTime();
+                            int isOK = isOK(totalSize) ? 1 : 0;
+                            stringBuilder.append(
+                                    totalPrice + "\t"
+                                    + totalSize + "\t"
+                                    + execTime + "\t"
+                                    + isOK + "\t"
+                                    + crossoverTypeToString(iType) + "\t"
+                                    + iPop + "\t"
+                                    + iCrossChance + "\t"
+                                    + iMutChance
+                                    + "\r\n");
+                            if (verbosity) displayCurrentResult(score, settingsForGA);
+                        }
+                    }
+                }
             }
         }
         String result = stringBuilder.toString();
