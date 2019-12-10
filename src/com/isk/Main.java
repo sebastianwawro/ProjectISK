@@ -42,11 +42,12 @@ public class Main {
                 while (true) {
                     if (!started) {
                         try {
-                            Thread.sleep(100);
+                            Thread.sleep(3000);
                         }
                         catch (Exception e) {e.printStackTrace();}
                         continue;
                     }
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                     System.out.println("STATUS:");
                     System.out.println("Test Common: " + testCommonProgress + "/" + testCommonMax);
                     System.out.println("Test Population: " + testPopulationProgress + "/" + testPopulationMax);
