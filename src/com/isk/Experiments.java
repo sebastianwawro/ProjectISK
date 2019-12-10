@@ -48,6 +48,7 @@ public class Experiments {
         System.out.println("Crossover type: " + crossoverTypeToString(settingsForGA.crossoverType));
         System.out.println("Crossover chance: " + settingsForGA.crossoverChance);
         System.out.println("Mutation chance: " + settingsForGA.mutationChance);
+        System.out.println("Processing finished in " + survivedChromosomeData.getExecTime() + " seconds");
     }
 
     public static double countItemsSize(SurvivedChromosomeData survivedChromosomeData) {

@@ -10,7 +10,13 @@ public class Main {
     public static void main(String[] args) throws Exception {
         //solveUsingJenetics();
         exampleGA();
-        solveUsingGA();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("Click enter to begin!");
+        int x = System.in.read();
+        if (x == 97 || x == 65) solveUsingGA_Async();
+        else solveUsingGA_Sync();
     }
 
     public static void exampleGA() throws Exception {
@@ -26,7 +32,62 @@ public class Main {
         Experiments.displayCurrentResult(survivedChromosomeData, settingsForGA);
     }
 
-    public static void solveUsingGA() throws Exception {
+
+    public static void solveUsingGA_Sync() throws Exception {
+        FileParser.parseFile("input.txt");
+        System.out.println("Backpack capacity: " + AppMemory.getInstance().getBackpackCapacity() + "\n\n");
+        for (PossibleItem item : AppMemory.getInstance().getPossibleItems()) {
+            System.out.println("Item:\n"+item.getItemId()+"\n"+item.getItemSize()+"\n"+item.getItemPrice()+"\n\n");
+        }
+
+        try {
+            Experiments.testCommon("MacierzTestZwykly.txt");
+        }
+        catch (Exception e) {
+            System.out.println("Test Common failed, exception thrown: ");
+            e.printStackTrace();
+        }
+        try {
+            Experiments.testPopulation("MacierzTestPopulacje.txt");
+        }
+        catch (Exception e) {
+            System.out.println("Test Population failed, exception thrown: ");
+            e.printStackTrace();
+        }
+        try {
+            Experiments.testDifferentCrossovers("MacierzRozneCrossovery.txt");
+        }
+        catch (Exception e) {
+            System.out.println("Test Different Crossovers failed, exception thrown: ");
+            e.printStackTrace();
+        }
+        try {
+            Experiments.testCrossoverChance("MacierzTestSzansaCrossovera.txt");
+        }
+        catch (Exception e) {
+            System.out.println("Test Crossover Chance failed, exception thrown: ");
+            e.printStackTrace();
+        }
+        try {
+            Experiments.testMutationChance("MacierzTestSzansaMutacji.txt");
+        }
+        catch (Exception e) {
+            System.out.println("Test Mutation Chance failed, exception thrown: ");
+            e.printStackTrace();
+        }
+        try {
+            Experiments.testAIO("MacierzTestAIO.txt");
+        }
+        catch (Exception e) {
+            System.out.println("Test Common failed, exception thrown: ");
+            e.printStackTrace();
+        }
+
+        System.out.println("Kuniec");
+        Thread.sleep(5000);
+    }
+
+    public static void solveUsingGA_Async() throws Exception {
         FileParser.parseFile("input.txt");
         System.out.println("Backpack capacity: " + AppMemory.getInstance().getBackpackCapacity() + "\n\n");
         for (PossibleItem item : AppMemory.getInstance().getPossibleItems()) {
