@@ -1,0 +1,3 @@
+Wartość spakowanych itemków	Waga spakowanych itemków	Czas pakowania	Czy poprawne
+152.21114075714928	150.3999959594788	0.898	1
+140.465634502204	150.3999442481885	0.909	1
