@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Experiments {
-    private static boolean verbosity = false;
+    public static boolean verbosity = false;
     private static int repeatCount = 20;
 
     private static String crossoverTypeToString(int type) {

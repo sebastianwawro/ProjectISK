@@ -1,4 +1,6 @@
 package com.softtechdesign.ga;
+import com.isk.Experiments;
+
 import java.util.*;
 
 /**
@@ -319,7 +321,7 @@ public abstract class GA implements Runnable
         int iGen;
         int iPrelimChrom, iPrelimChromToUsePerRun;
 
-        System.out.println("GA start time: " + new Date().toString());
+        if(Experiments.verbosity) System.out.println("GA start time: " + new Date().toString());
 
         if (numPrelimRuns > 0)
         {
@@ -335,7 +337,7 @@ public abstract class GA implements Runnable
                 //create a somewhat fit chromosome population for this prelim run
                 while (iGen < maxPrelimGenerations)
                 {
-                    System.out.println(iPrelimRuns + " of " + numPrelimRuns + " prelim runs --> " +
+                    if(Experiments.verbosity) System.out.println(iPrelimRuns + " of " + numPrelimRuns + " prelim runs --> " +
                                        (iGen + 1) + " of " + maxPrelimGenerations + " generations");
 
                     computeFitnessRankings();
@@ -365,10 +367,10 @@ public abstract class GA implements Runnable
             }
             for (int i = 0; i < iPrelimChrom; i++)
                 this.chromosomes[i].copyChromGenes(this.prelimChrom[i]);
-            System.out.println("INITIAL POPULATION AFTER PRELIM RUNS:");
+            if(Experiments.verbosity) System.out.println("INITIAL POPULATION AFTER PRELIM RUNS:");
         }
         else
-            System.out.println("INITIAL POPULATION (NO PRELIM RUNS):");
+        if(Experiments.verbosity) System.out.println("INITIAL POPULATION (NO PRELIM RUNS):");
 
         //Add Preliminary Chromosomes to list box
         addChromosomesToLog(0, 10);
@@ -389,27 +391,27 @@ public abstract class GA implements Runnable
             iGen++;
         }
 
-        System.out.println("GEN " + (iGen + 1) + " AVG FITNESS = " + this.genAvgFitness[iGen-1] +
+        if(Experiments.verbosity) System.out.println("GEN " + (iGen + 1) + " AVG FITNESS = " + this.genAvgFitness[iGen-1] +
                            " AVG DEV = " + this.genAvgDeviation[iGen-1]);
 
         addChromosomesToLog(iGen, 10); //display Chromosomes to system.out
 
         computeFitnessRankings();
-        System.out.println("Best Chromosome Found: ");
-        System.out.println(this.chromosomes[this.bestFitnessChromIndex].getGenesAsStr() +
+        if(Experiments.verbosity) System.out.println("Best Chromosome Found: ");
+        if(Experiments.verbosity) System.out.println(this.chromosomes[this.bestFitnessChromIndex].getGenesAsStr() +
                            " Fitness= " + this.chromosomes[this.bestFitnessChromIndex].fitness);
 
         //EXT
         Chromosome testChrom = this.chromosomes[this.bestFitnessChromIndex];
         if (testChrom instanceof ChromFloat) {
-            System.out.println("EXT: chromosome type is float");
+            if(Experiments.verbosity) System.out.println("EXT: chromosome type is float");
             ChromFloat realChrom = (ChromFloat) testChrom;
             this.extBestChromosomeFitness = realChrom.fitness;
             this.extBestChromosomeGenes = realChrom.genes;
         }
         //EXT
 
-        System.out.println("GA end time: " + new Date().toString());
+        if(Experiments.verbosity) System.out.println("GA end time: " + new Date().toString());
         return (iGen);
     }
 
@@ -672,7 +674,7 @@ public abstract class GA implements Runnable
             sChrom = "" + i;
             if (sChrom.length() < 2)
                 sChrom = sChrom + " ";
-            System.out.println("Gen " + sGen + ": Chrom" + sChrom + " = " + 
+            if(Experiments.verbosity) System.out.println("Gen " + sGen + ": Chrom" + sChrom + " = " +
                                this.chromosomes[i].getGenesAsStr() + ", fitness = " + 
                                this.chromosomes[i].fitness);
         }

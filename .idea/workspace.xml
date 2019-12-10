@@ -7,10 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62abc94a-23cf-4de9-adf5-4da1b56896bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TestArt.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/isk/Experiments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/Experiments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/isk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/isk/GACurveFitX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/GACurveFitX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testRun/TestArt.jar" beforeDir="false" afterPath="$PROJECT_DIR$/testRun/TestArt.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +24,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/isk/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="323">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/isk/GACurveFitX.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="607">
+              <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="676" column="38" selection-start-line="676" selection-start-column="38" selection-end-line="676" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/isk/Experiments.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
+            <state relative-caret-position="85">
+              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,6 +116,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Best Chromosome Found</find>
+      <find>System.out.print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,11 +131,11 @@
         <option value="$PROJECT_DIR$/src/com/isk/GACurveFit.java" />
         <option value="$PROJECT_DIR$/src/com/isk/SettingsForGA.java" />
         <option value="$PROJECT_DIR$/src/com/isk/SurvivedChromosomeData.java" />
-        <option value="$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java" />
-        <option value="$PROJECT_DIR$/src/com/isk/GACurveFitX.java" />
         <option value="$PROJECT_DIR$/src/com/isk/AppMemory.java" />
-        <option value="$PROJECT_DIR$/src/com/isk/Experiments.java" />
         <option value="$PROJECT_DIR$/src/com/isk/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/isk/Experiments.java" />
+        <option value="$PROJECT_DIR$/src/com/isk/GACurveFitX.java" />
+        <option value="$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java" />
       </list>
     </option>
   </component>
@@ -293,13 +318,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="107" column="56" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/softtechdesign/ga/ChromFloat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -318,16 +336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/isk/GACurveFitX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -389,20 +397,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/isk/Experiments.java">
+    <entry file="file://$PROJECT_DIR$/src/com/isk/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
+        <state relative-caret-position="323">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/isk/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/isk/Experiments.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state relative-caret-position="85">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/isk/GACurveFitX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="676" column="38" selection-start-line="676" selection-start-column="38" selection-end-line="676" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -54,7 +54,7 @@ public class GACurveFitX extends GAFloat
 
     public static SurvivedChromosomeData performGA(SettingsForGA settingsForGA)
     {
-        System.out.println("Packing backpack...");
+        if(Experiments.verbosity) System.out.println("Packing backpack...");
         try
         {
             List<PossibleItem> possibleItems = AppMemory.getInstance().getPossibleItems();
@@ -78,7 +78,7 @@ public class GACurveFitX extends GAFloat
                 return new SurvivedChromosomeData(curveFit.extBestChromosomeFitness, curveFit.extBestChromosomeGenes, execTime);
             }
             else {
-                System.out.println("to jest guwno!");
+                if(Experiments.verbosity) System.out.println("fail!");
                 return null;
             }
         }
