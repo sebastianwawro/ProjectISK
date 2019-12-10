@@ -43,18 +43,18 @@ public class GACurveFitX extends GAFloat
     {
         double packedValue=0;
         double packedWeight=0;
-        for (int iWtf=0; iWtf<itemsCount; iWtf++) {
-            double val = this.getChromosome(iChromIndex).getGene(iWtf);
+        for (int iGene=0; iGene<itemsCount; iGene++) {
+            double val = this.getChromosome(iChromIndex).getGene(iGene);
             if (val > 1) return -(Integer.MAX_VALUE);
-            packedValue += this.possibleItems.get(iWtf).getItemPrice() * val;
-            packedWeight += this.possibleItems.get(iWtf).getItemSize() * val;
+            packedValue += this.possibleItems.get(iGene).getItemPrice() * val;
+            packedWeight += this.possibleItems.get(iGene).getItemSize() * val;
         }
         return (packedWeight<=capacity) ? (packedValue * (packedWeight / capacity)) : (-packedWeight);
     }
 
     public static SurvivedChromosomeData performGA(SettingsForGA settingsForGA)
     {
-        System.out.println("GACurveFit GA...");
+        System.out.println("Packing backpack...");
         try
         {
             List<PossibleItem> possibleItems = AppMemory.getInstance().getPossibleItems();
@@ -62,7 +62,7 @@ public class GACurveFitX extends GAFloat
             GACurveFitX curveFit = new GACurveFitX(
                     itemsCount,
                     possibleItems,
-                    AppMemory.getInstance().getBackspaceCapacity(),
+                    AppMemory.getInstance().getBackpackCapacity(),
                     settingsForGA.populationSize,
                     settingsForGA.crossoverType,
                     settingsForGA.crossoverChance,

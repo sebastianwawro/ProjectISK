@@ -1,10 +1,7 @@
 package com.isk;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.softtechdesign.ga.GAException;
 //import com.softtechdesign.ga.examples.*;
 import io.jenetics.knapsack.Knapsack;
 
@@ -12,18 +9,27 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         //solveUsingJenetics();
+        exampleGA();
         solveUsingGA();
     }
 
-    public static void solveUsingGA() throws Exception {
+    public static void exampleGA() throws Exception {
         FileParser.parseFile("input.txt");
-        System.out.println("Backspace capacity: " + AppMemory.getInstance().getBackspaceCapacity() + "\n\n");
+        System.out.println("Backpack capacity: " + AppMemory.getInstance().getBackpackCapacity() + "\n\n");
         for (PossibleItem item : AppMemory.getInstance().getPossibleItems()) {
             System.out.println("Item:\n"+item.getItemId()+"\n"+item.getItemSize()+"\n"+item.getItemPrice()+"\n\n");
         }
 
-        //GACurveFitX.performGA(new SettingsForGA());
-        //Experiments.testCommon("testCommon.txt");
+        SettingsForGA settingsForGA = new SettingsForGA();
+        Experiments.displayCurrentResult(GACurveFitX.performGA(settingsForGA), settingsForGA);
+    }
+
+    public static void solveUsingGA() throws Exception {
+        FileParser.parseFile("input.txt");
+        System.out.println("Backpack capacity: " + AppMemory.getInstance().getBackpackCapacity() + "\n\n");
+        for (PossibleItem item : AppMemory.getInstance().getPossibleItems()) {
+            System.out.println("Item:\n"+item.getItemId()+"\n"+item.getItemSize()+"\n"+item.getItemPrice()+"\n\n");
+        }
 
         Thread testCommonThread = new Thread(new Runnable() {
             @Override
@@ -118,7 +124,7 @@ public class Main {
 
     public static void solveUsingJenetics() throws Exception {
         FileParser.parseFile("input.txt");
-        System.out.println("Backspace capacity: " + AppMemory.getInstance().getBackspaceCapacity() + "\n\n");
+        System.out.println("Backpack capacity: " + AppMemory.getInstance().getBackpackCapacity() + "\n\n");
         for (PossibleItem item : AppMemory.getInstance().getPossibleItems()) {
             System.out.println("Item:\n"+item.getItemId()+"\n"+item.getItemSize()+"\n"+item.getItemPrice()+"\n\n");
         }
@@ -126,7 +132,7 @@ public class Main {
         String out = Knapsack.solveKnapsack(AppMemory.getInstance().getPossibleItems().size(),
                 PossibleItem.getItemSizesTable(),
                 PossibleItem.getItemPricesTable(),
-                AppMemory.getInstance().getBackspaceCapacity(),
+                AppMemory.getInstance().getBackpackCapacity(),
                 5000,
                 50,
                 0.05,

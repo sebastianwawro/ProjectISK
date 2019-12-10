@@ -1,6 +1,5 @@
 package com.isk;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -12,7 +11,7 @@ public class FileParser {
         if (!fileTokenizer.hasMoreTokens()) throw new Exception("File structure invalid - backpack capacity not found!");
         String capacity = fileTokenizer.nextToken();
         capacity = capacity.substring(1, capacity.length()-1);
-        AppMemory.getInstance().setBackspaceCapacity(Double.valueOf(capacity));
+        AppMemory.getInstance().setBackpackCapacity(Double.valueOf(capacity));
 
         List<PossibleItem> possibleItems = AppMemory.getInstance().getPossibleItems();
 

@@ -18,14 +18,15 @@ public class Experiments {
             case 3:
                 return "Roulette Crossover";
             default:
-                return "WTF Crossover";
+                return "Wrong Crossover";
         }
     }
 
     public static void displayCurrentResult(SurvivedChromosomeData survivedChromosomeData, SettingsForGA settingsForGA) {
+        System.out.println("GA RESULT:");
         List<PossibleItem> possibleItems = AppMemory.getInstance().getPossibleItems();
         System.out.println("Fitness: " + survivedChromosomeData.getFitness());
-        System.out.println("Genes: ");
+        System.out.println("Genes (representing the percent of packed item)\tItem size\tPacked size\tItem price\tPacked price");
         int genesCount = survivedChromosomeData.getGenes().length;
         double totalSize = 0;
         double totalPrice = 0;
@@ -35,12 +36,13 @@ public class Experiments {
             double itemPrice = possibleItems.get(i).getItemPrice();
             double realItemSize = val * itemSize;
             double realItemPrice = val * itemPrice;
-            System.out.println(val + "  " + itemSize + "  " + realItemSize + "  " + itemPrice + "  " + realItemPrice);
+            System.out.println(val + "\t" + itemSize + "\t" + realItemSize + "\t" + itemPrice + "\t" + realItemPrice);
             totalSize += realItemSize;
             totalPrice += realItemPrice;
         }
         System.out.println("Total size: " + totalSize);
         System.out.println("Total price: " + totalPrice);
+        System.out.println("Backpack capacity: " + AppMemory.getInstance().getBackpackCapacity());
         System.out.println("Used settings: ");
         System.out.println("Population size: " + settingsForGA.populationSize);
         System.out.println("Crossover type: " + crossoverTypeToString(settingsForGA.crossoverType));
@@ -75,7 +77,7 @@ public class Experiments {
     }
 
     public static boolean isOK (double totalSize) {
-        double capacity = AppMemory.getInstance().getBackspaceCapacity();
+        double capacity = AppMemory.getInstance().getBackpackCapacity();
         if (totalSize > capacity) return false;
         else return true;
     }

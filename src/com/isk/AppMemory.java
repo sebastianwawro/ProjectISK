@@ -6,7 +6,7 @@ import java.util.List;
 public class AppMemory {
     private static AppMemory _instance;
     private List<PossibleItem> possibleItems;
-    private double backspaceCapacity;
+    private double backpackCapacity;
 
     private AppMemory(){}
 
@@ -22,11 +22,11 @@ public class AppMemory {
         return possibleItems;
     }
 
-    public double getBackspaceCapacity() {
-        return backspaceCapacity;
+    public double getBackpackCapacity() {
+        return backpackCapacity;
     }
 
-    public void setBackspaceCapacity(double backspaceCapacity) {
-        this.backspaceCapacity = backspaceCapacity;
+    public void setBackpackCapacity(double backpackCapacity) {
+        this.backpackCapacity = backpackCapacity;
     }
 }

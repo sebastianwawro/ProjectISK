@@ -105,8 +105,8 @@ public abstract class GA implements Runnable
     /** get the fitness value for the given chromosome */
     abstract protected double getFitness(int iChromIndex);
 
-    public double[] extBestChromosomeGenes = null;
-    public double extBestChromosomeFitness = -1;
+    public double[] extBestChromosomeGenes = null; //EXT
+    public double extBestChromosomeFitness = -1; //EXT
 
     /**
      * Runs the evolution by calling evolve() routine
@@ -399,13 +399,15 @@ public abstract class GA implements Runnable
         System.out.println(this.chromosomes[this.bestFitnessChromIndex].getGenesAsStr() +
                            " Fitness= " + this.chromosomes[this.bestFitnessChromIndex].fitness);
 
+        //EXT
         Chromosome testChrom = this.chromosomes[this.bestFitnessChromIndex];
         if (testChrom instanceof ChromFloat) {
-            System.out.println("ZAJEBISTA FUNKCJA!!!");
+            System.out.println("EXT: chromosome type is float");
             ChromFloat realChrom = (ChromFloat) testChrom;
             this.extBestChromosomeFitness = realChrom.fitness;
             this.extBestChromosomeGenes = realChrom.genes;
         }
+        //EXT
 
         System.out.println("GA end time: " + new Date().toString());
         return (iGen);
