@@ -114,7 +114,7 @@ public class Experiments {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Wartość spakowanych itemków\tWaga spakowanych itemków\tCzas pakowania\tCzy poprawne\tRozmiar populacji\r\n");
         SettingsForGA settingsForGA = new SettingsForGA();
-        for (int iPop = 5; iPop < 500; iPop +=5) {
+        for (int iPop = 10; iPop < 500; iPop += 10) {
             settingsForGA.populationSize=iPop;
             for (int rp=0; rp<repeatCount; rp++) {
                 SurvivedChromosomeData score = GACurveFitX.performGA(settingsForGA);
@@ -236,7 +236,7 @@ public class Experiments {
         SettingsForGA settingsForGA = new SettingsForGA();
         for (int iType = 0; iType <= 3; iType++) {
             settingsForGA.crossoverType = iType;
-            for (int iPop = 5; iPop <= 500; iPop += 5) {
+            for (int iPop = 10; iPop < 500; iPop += 10) {
                 settingsForGA.populationSize = iPop;
                 for (double iCrossChance = 0.05f; iCrossChance < 1.0f; iCrossChance += 0.05f) {
                     settingsForGA.crossoverChance = iCrossChance;

@@ -25,8 +25,8 @@ public class GACurveFitX extends GAFloat
                 crossoverChance, //crossover probability (DEFAULT 0.7)
               6, //random selection chance % (regardless of fitness)
               3000, //stop after this many generations
-              5, //num prelim runs (to build good breeding stock for final--full run)
-              10, //max prelim generations
+              10, //num prelim runs (to build good breeding stock for final--full run)
+              20, //max prelim generations
                 mutationChance, //chromosome mutation prob. (DEFAULT 0.1)
                 crossoverType, //crossover type
               2, //num decimal pts of precision
