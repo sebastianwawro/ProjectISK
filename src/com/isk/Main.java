@@ -130,10 +130,10 @@ public class Main {
             e.printStackTrace();
         }
         try {
-            Experiments.testAIO("MacierzTestAIO.txt");
+            //Experiments.testAIO("MacierzTestAIO.txt");
         }
         catch (Exception e) {
-            System.out.println("Test Common failed, exception thrown: ");
+            System.out.println("Test AIO failed, exception thrown: ");
             e.printStackTrace();
         }
 
@@ -215,7 +215,7 @@ public class Main {
                     Experiments.testAIO("MacierzTestAIO.txt");
                 }
                 catch (Exception e) {
-                    System.out.println("Test Common failed, exception thrown: ");
+                    System.out.println("Test AIO failed, exception thrown: ");
                     e.printStackTrace();
                 }
             }
