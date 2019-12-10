@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62abc94a-23cf-4de9-adf5-4da1b56896bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/isk/AppMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/AppMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/isk/Experiments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/Experiments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/isk/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/FileParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/isk/GACurveFitX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/GACurveFitX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/isk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/isk/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/softtechdesign/ga/GA.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/isk/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+            <state relative-caret-position="221">
+              <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -392,8 +387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/isk/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+        <state relative-caret-position="221">
+          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

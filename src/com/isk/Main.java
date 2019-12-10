@@ -21,7 +21,9 @@ public class Main {
         }
 
         SettingsForGA settingsForGA = new SettingsForGA();
-        Experiments.displayCurrentResult(GACurveFitX.performGA(settingsForGA), settingsForGA);
+        SurvivedChromosomeData survivedChromosomeData = GACurveFitX.performGA(settingsForGA);
+        if (survivedChromosomeData == null) throw new Exception("failed so much");
+        Experiments.displayCurrentResult(survivedChromosomeData, settingsForGA);
     }
 
     public static void solveUsingGA() throws Exception {
